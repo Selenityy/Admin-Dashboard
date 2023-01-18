@@ -10,23 +10,26 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 300px 800px;
-    grid-template-rows: 200px 800px;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: auto 1fr;
     grid-auto-flow: row;
+    grid-template-areas: 
+    'sidebar header'
+    'sidebar body';
 }
 
 .container div {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+
+/* ------------------- SIDE BAR ------------------- */
+
+
 .sidebar {
-    grid-row: 1 / 3;
-    grid-column: 1 / 2;
     background-color: #1A92D4;
-    display: grid;
-    grid-auto-flow: row;
-    padding-left: 10px;
-    padding-top: 10px;
+    padding: 2rem;
+    grid-area: sidebar;
 }
 
 .sidebar div,
@@ -59,12 +62,12 @@ img.logo {
 }
 
 .menu {
-    padding-top: 50px;
+    padding-top: 4rem;
 }
 
 .menu ul {
     display: grid;
-    grid-template-rows: repeat(11, 1fr);
+    /* grid-template-rows: repeat(11, 1fr); */
     justify-items: start;
     padding-left: 1rem;
     padding-bottom: 1rem;
@@ -87,14 +90,17 @@ img.dash-icon {
     align-items: center;
 }
 
+
+/* ------------------- HEADER ------------------- */
+
+
 .header {
     background-color: white;
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
-    padding-top: 5px;
+    /* padding-top: 5px;
     padding-left: 50px;
-    padding-right: 50px;
-    display: grid;
+    padding-right: 50px; */
+    padding: 1rem 1rem 1rem 2.5rem;
+    grid-area: header;
 }
 
 .header ul,
@@ -194,7 +200,7 @@ img.profile-picture {
     display: grid;
     grid-auto-flow: column;
     grid-column: 3 / 4;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .new,
@@ -204,15 +210,19 @@ img.profile-picture {
     background: #1A92D4;
     color: white;
     font-weight: bold;
-    width: 150px;
-    height: 60px;
+    width: 120px;
+    height: 50px;
     display: grid;
     justify-items: center;
     align-items: center;
     font-size: 1.3rem;
 }
 
-.body {
+
+/* ------------------- BODY MAIN ------------------- */
+
+
+.body-main {
     background-color: #E2E8F0;
     grid-column: 2 / 4;
     grid-row: 2 / 3;
