@@ -5,7 +5,8 @@
 
 body {
     min-height: 100vh;
-    width: 100vw;
+    /* width: 100vw; */
+    background-color: #E2E8F0;
 }
 
 .container {
@@ -256,7 +257,6 @@ img.profile-picture {
 
 
 .body-main {
-    background-color: #E2E8F0;
     display: grid;
     grid-area: content;
     padding: 2rem 1rem 1rem 1.5rem;
