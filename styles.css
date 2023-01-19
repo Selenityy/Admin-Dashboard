@@ -96,8 +96,11 @@ img.dash-icon {
 
 .header {
     background-color: white;
-    padding: 1rem 1rem 1rem 2.5rem;
+    padding: 1rem 2rem 1rem 2.5rem;
     grid-area: header;
+    display: grid;
+    /* grid-template-columns: 2fr 1fr; */
+    grid-template-rows: min-content min-content;
 }
 
 .header ul,
@@ -114,16 +117,33 @@ img.notification {
 
 .search-bar {
     display: grid;
-    grid-template-columns: 50px 950px 80px 150px 200px;
-    grid-auto-flow: column;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        'search bubble';
+    /* grid-template-columns: 50px 950px 80px 150px 200px;
+    grid-auto-flow: column; */
     align-items: center;
     justify-items: start;
     grid-row: 1 / 2;
 }
 
-.bar-icon {
-    grid-column: 1 / 2;
+.search-left-side {
+    /* grid-row: 1 / 2; */
+    display: grid;
+    grid-area: 'search';
+    grid-auto-flow: column;
+    align-items: center;
     justify-self: start;
+    /* justify-self: start; */
+    /* grid-template-columns: 50px 950px 500px;
+    grid-template-areas: 'icon bar side'; */
+}
+
+.bar-icon {
+    /* grid-column: 1 / 2; */
+    justify-self: start;
+    /* grid-area: 'search'; */
 }
 
 .search-section {
@@ -133,23 +153,35 @@ img.notification {
     width: 600px;
     height: 40px;
     margin-right: 120px;
-    grid-column: 2 / 3;
-    justify-self: start;
-}
-
-.notification {
-    grid-column: 3 / 4;
+    /* grid-column: 2 / 3; */
     justify-self: end;
 }
 
+.search-right-side {
+    grid-area: 'bubble';
+    display: grid;
+    align-items: center;
+    justify-self: end;
+    grid-auto-flow: column;
+    padding-right: 2rem;
+    /* grid-row: 2 / 3; */
+}
+
+.notification {
+    margin-right: 25px;
+    /* grid-column: 3 / 4;
+    justify-self: end; */
+}
+
 .profile-picture {
-    grid-column: 4 / 5;
-    justify-self: center;
+    margin-right: 25px;
+    /* grid-column: 4 / 5;
+    justify-self: center; */
 }
 
 .name {
-    grid-column: 5 / 6;
-    justify-self: start;
+    /* grid-column: 5 / 6;
+    justify-self: start; */
 }
 
 img.profile-picture {
@@ -166,7 +198,7 @@ img.profile-picture {
 .profile-bar {
     grid-row: 2 / 3;
     display: grid;
-    grid-template-columns: 1fr 4fr 3fr;
+    grid-template-columns: 140px 2fr 1fr;
     grid-auto-flow: column;
     align-items: center;
     padding-top: 20px;
@@ -196,7 +228,7 @@ img.profile-picture {
     display: grid;
     grid-auto-flow: column;
     grid-column: 3 / 4;
-    justify-content: space-evenly;
+    justify-content: end;
 }
 
 .new,
@@ -212,6 +244,11 @@ img.profile-picture {
     justify-items: center;
     align-items: center;
     font-size: 1.3rem;
+}
+
+.new,
+.upload {
+    margin-right: 30px;
 }
 
 
