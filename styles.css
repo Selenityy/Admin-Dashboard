@@ -15,7 +15,7 @@ body {
     grid-auto-flow: row;
     grid-template-areas: 
     'sidebar header'
-    'sidebar body';
+    'sidebar content';
 }
 
 .container div {
@@ -30,6 +30,7 @@ body {
     background-color: #1A92D4;
     padding: 2rem;
     grid-area: sidebar;
+    height: 100%;
 }
 
 .sidebar div,
@@ -67,7 +68,6 @@ img.logo {
 
 .menu ul {
     display: grid;
-    /* grid-template-rows: repeat(11, 1fr); */
     justify-items: start;
     padding-left: 1rem;
     padding-bottom: 1rem;
@@ -96,9 +96,6 @@ img.dash-icon {
 
 .header {
     background-color: white;
-    /* padding-top: 5px;
-    padding-left: 50px;
-    padding-right: 50px; */
     padding: 1rem 1rem 1rem 2.5rem;
     grid-area: header;
 }
@@ -173,7 +170,6 @@ img.profile-picture {
     grid-auto-flow: column;
     align-items: center;
     padding-top: 20px;
-    padding-bottom: 10px;
 }
 
 .profile-picture-bigger {
@@ -224,24 +220,29 @@ img.profile-picture {
 
 .body-main {
     background-color: #E2E8F0;
-    grid-column: 2 / 4;
-    grid-row: 2 / 3;
     display: grid;
-    grid-template-columns: repeat(3, 520px);
-    grid-template-rows: repeat(3, 250px);
+    grid-area: content;
+    padding: 2rem 1rem 1rem 1.5rem;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: min-content 1fr;
+    grid-template-areas: 
+        'projects announcements'
+        'projects trending';
+    gap: 2rem;
+    overflow: auto;
+}
+
+.projects {
+    grid-area: projects;
 }
 
 .cards{
-    padding-bottom: 10px;
     display: grid;
-    grid-column: 1 / 3;
-    grid-row: 1 / 4;
-}
-
-.h1 {
-    margin-left: 20px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
 }
 
 #card1,
@@ -251,36 +252,183 @@ img.profile-picture {
 #card5,
 #card6 {
     border-style: solid;
-    border-left-color: goldenrod;
-    border-width: 1px 1px 1px 10px;
+    border-color: white;
+    border-left-color: #94C11F;
+    border-width: 0px 1px 0px 12px;
     background-color: white;
-    width: 400px;
-    height: 200px;
-    margin-bottom: 30px;
-    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr auto;
+}
+
+.title {
+    grid-row: 1 / 2;
+    margin-top: 34px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.card-body {
+    grid-row: 2 / 3;
+    margin-top: 17px;
+    margin-left: 37px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #6D6D6D;
 }
 
 .card-icons {
     width: 1.5rem;
     height: auto;
-}
-
-.body-right {
-    grid-column: 1 / 3;
-    grid-row: 1 / 4;
-    grid-auto-flow: row;
+    grid-row: 3 / 4;
     display: grid;
-    grid-template-columns: 500px 500px;
-    grid-template-rows: 500px 500px 500px;
+    grid-template-columns: 165px 35px 35px 12px;
+    grid-template-rows: 40px;
+    margin-bottom: 24px;
+    grid-column-gap: 23px;
+}
+.star {
+    grid-column: 2 / 3;
+    display: grid;
+    place-self: center;
 }
 
-.cards {
-   grid-column: 1 / 2;
-   grid-row: 1 / 3;
-   grid-auto-flow: row; 
-}
-
-.body-left {
+.eye {
     grid-column: 3 / 4;
-    grid-row: 1 / 4;
+    display: grid;
+    place-self: center;
+}
+
+.arrow {
+    grid-column: 4 / 6;
+    display: grid;
+    place-self: center;
+}
+
+.announcements {
+    grid-area: announcements;
+
+}
+
+.trending {
+    grid-area: trending;
+}
+
+/* ------------ BODY MAIN & ANNOUNCEMENTS ------------ */
+
+
+.h1 {
+    margin-bottom: 15px;
+}
+
+.announcement-cards {
+    background-color: white;
+    border-radius: 10px;
+}
+
+img.another-profile-pic {
+    width: 5rem;
+    height: auto;
+}
+
+
+/* ------------------- TRENDING ------------------- */
+
+
+.trending-cards {
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.tcard1 {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 80px 190px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tcard1 > .account {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.tcard2 {
+    grid-row: 2 / 3;
+    display: grid;
+    grid-template-columns: 80px 190px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tcard2 > .account {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.tcard3 {
+    grid-row: 3 / 4;
+    display: grid;
+    grid-template-columns: 80px 190px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tcard3 > .account {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.tcard4 {
+    grid-row: 4 / 5;
+    display: grid;
+    grid-template-columns: 80px 190px;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.tcard4 > .account {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+.account-profile {
+    font-weight: 500;
+}
+
+.account-name {
+    color: #818181;
 }
