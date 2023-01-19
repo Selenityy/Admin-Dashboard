@@ -12,11 +12,12 @@ body {
 .container {
     display: grid;
     grid-template-columns: 350px 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-auto-flow: row;
     grid-template-areas: 
     'sidebar header'
-    'sidebar content';
+    'sidebar content'
+    'sidebar footer';
 }
 
 .container div {
@@ -495,4 +496,16 @@ img.another-profile-pic {
 
 .account-name {
     color: #818181;
+}
+
+/* ------------------- FOOTER ------------------- */
+
+
+.footer {
+    grid-area: 'footer';
+    color: darkgray;
+    font: 1rem;
+    margin-right: 20px;
+    display: grid;
+    justify-self: end;
 }
