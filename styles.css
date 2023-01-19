@@ -333,8 +333,20 @@ img.profile-picture {
     padding: 20px;
 }
 
+.acard1 {
+    padding-bottom: 20px;
+    width: 300px;
+}
+
 .acard2 {
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: solid #818181;
+}
+
+.acard3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-top: solid #818181;
 }
 
@@ -348,7 +360,8 @@ img.another-profile-pic {
 }
 
 .abody {
-    color: #818181 
+    color: #818181;
+    padding-top: 5px; 
 }
 
 
